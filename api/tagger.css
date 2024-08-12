@@ -1,0 +1,126 @@
+/* The div that holds the entire popup */
+
+#nbtDiv {
+	padding: 0;
+	margin: 0;
+	display: none;
+	z-index:100;
+	border-radius: 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+    -moz-box-shadow: 2px 3px 5px #BBBBBB;
+    -webkit-box-shadow: 2px 3px 5px #BBBBBB;
+    box-shadow: 2px 3px 5px #BBBBBB;
+    border-left: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+    border-bottom: 1px solid #BBBBBB;
+    background-color: white;
+    font-family: Verdana,Arial,Helvetica;
+}
+
+/* The Header that includes the Current Verse Reference and Close X */
+
+#nbtHeader {
+    /* background: url("/api/NETBibleTagger/v2/images/headerBackground.png") repeat scroll 0 0 white; */
+    /* IE10 Consumer Preview */ 
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D6D6D5 100%);
+	
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D6D6D5 100%);
+	
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #D6D6D5 100%);
+	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D6D6D5));
+	
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D6D6D5 100%);
+	
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #D6D6D5 100%);
+    border: 1px solid #DDDDDD;
+    height: 30px;
+    -moz-border-radius-topright: 6px;
+    -moz-border-radius-topleft: 6px;
+    text-align: left;
+}
+
+/* The span that hold the Current Verse Reference */
+
+#nbtVerseTitle {
+    color: #444444;
+    display: inline;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 8px;
+    position: relative;
+    top: 4px;
+    width: auto;
+}
+
+/* The Close link's child image */
+
+#nbtClose img {
+    border: 0 none;
+    display: block;
+    float: right;
+    height: 16px;
+    margin-right: 3px;
+    margin-top: 6px;
+    *margin-top:0px;
+}
+
+/* The loading Indicator image */
+
+#nbtLoading {
+	position:relative; 
+	border:0; 
+	margin-left:auto; 
+	margin-right:auto; 
+	display:block; 
+	vertical-align:middle;
+}
+
+/* The div containing the content */
+
+#verseTarget {
+	height: 150px;
+	/*
+	border: 1px solid #DDDDDD;
+	background-color: white; 
+	*/
+	color:black;
+	overflow: auto;
+	padding-left: 3px;
+    padding-right: 3px;
+    font-size: 13px;
+}
+
+#verseTarget a, #nbtPoweredBy a {
+	color: #0088CC;
+	text-decoration: none;
+	font-size: 14px;
+	background: none;
+}
+
+#verseTarget a:hover, #nbtPoweredBy a:hover {
+	color: #0088CC;
+	text-decoration: none;
+	font-size: 14px;
+	background: none;
+}
+
+
+.nbtWidth {
+	width: 350px;
+}
+
+#nbtPoweredBy {
+	padding-left: 6px;
+	border-top: 1px solid #DDDDDD;
+	font-size: 14px;
+	padding-bottom: 2px;
+    padding-top: 2px;
+    color:black;
+}

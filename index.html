@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Malayalam bible tagger test page</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Go Here: http://labs.bible.org/NETBibleTagger to add this to your site. -->
+    <!-- <script type="text/javascript" defer="defer" src="https://labs.bible.org/api/NETBibleTagger/v2/netbibletagger.js">
+        org.bible.NETBibleTagger.voidOnMouseOut = true;
+        org.bible.NETBibleTagger.parseAnchors = true;
+    </script>-->
+    <script type="text/javascript" defer="defer" src="api/tagger.js">
+        _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
+        _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
+    </script>
+
+</head>
+<body>
+    <p>പ്രവൃത്തികൾ 11:19-26</p>
+    <p>1 ശമൂവേൽ 1</p>
+</body>
+<script type="text/javascript">
+
+    var malBooks = "Yaa\u{D2A}\u{D4D}\u{D30}\u{D35}\u{D43}\u{D24}\u{D4D}\u{D24}\u{D3F}\u{D15}\u{D7E}|Yaa\u{D0E}\u{D2B}\u{D46}\u{D38}\u{D4D}\u{D2F}\u{D7C}";
+    var vols = "I+|1st|2nd|3rd|First|Second|Third|1|2|3";
+    var books = malBooks;
+
+	var verse = "\\d+(:\\d+)?(?:\\s?[-â€“â€“&,]\\s?\\d+)*";
+
+    var numberlist = "(\\d+(,\\s?\\d+)*)";
+    var passage = "((\\d+(\\.|:)\\d+[-â€“â€“]\\d+(\\.|:)\\d+)|(\\d+(\\.|:)\\d+[-â€“â€“]\\d+)|(\\d+[-â€“â€“]\\d+)|(\\d+(\\.|:)"+numberlist+")|(\\d+))";
+    var book = "((?:("+vols+")\\s?)?("+books+")\\.?\\s?)";
+    var passagelist = "("+passage + "(;\\s?(?!"+book+")"+passage+")*)";
+
+    var wordBoundary = "\\b";
+
+	var regex = wordBoundary+book+passagelist;
+
+    regex = new RegExp(regex, "um");
+
+    let str1 = "ക 1:8";
+    let str2 = "ad Luke 1:8";
+    let str3 = "ff e Yaaഎഫെസ്യർ 1:8";
+    let str4 = "d Yaaപ്രവൃത്തികൾ 1:8";
+
+    // var match = regex.exec(str1);
+    // if(match != null) {
+    //     alert("Matches str1: " + match);
+    // }
+    // match = regex.exec(str2);
+    // if(match != null) {
+    //     alert("Matches str2: " + match);
+    // }
+    // match = regex.exec(str3);
+    // if(match != null) {
+    //     alert("Matches str3: " + match);
+    // }
+    // match = regex.exec(str4);
+    // if(match != null) {
+    //     alert("Matches str4: " + match);
+    // }
+</script>
+</html>
