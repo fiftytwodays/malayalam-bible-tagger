@@ -588,7 +588,7 @@ NETDiv.innerHTML = '<div id="nbtHeader" class="nbtWidth">'+
 			        '<div id="nbtContent" class="nbtWidth">'+
                        '<img id="nbtLoading" src="https://labs.bible.org/api/NETBibleTagger/v2/images/loading.gif" style="" />'+
                        '<div id="verseTarget"></div>'+
-                    '</div><div id="nbtPoweredBy"><a href="https://github.com/fiftytwodays/malayalam-bible-tagger" target="_blank"> Bible Tagger</a>, '+ 'Provided by' +' <a href="https://github.com/godlytalias/Bible-Database">fiftytwodays.in</a></div>';
+                    '</div><div id="nbtPoweredBy"><a href="https://github.com/godlytalias/Bible-Database" target="_blank">Bible database</a>, '+ 'Provided by' +' <a href="https://github.com/fiftytwodays">fiftytwodays.in</a></div>';
 
 NETDiv.style.display = 'block';
 NETDiv.style.left = "-1000px";
