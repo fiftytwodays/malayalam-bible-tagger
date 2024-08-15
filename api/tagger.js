@@ -86,7 +86,7 @@ _in.fiftytwodays.MALBibleTagger.getScripture = async function() {
 	tip.style.display="block";
 	tip.style.position="absolute";
 	tip.style.padding = "0";
-
+	
 	verseTarget.innerHTML = await getVerses(_in.fiftytwodays.MALBibleTagger.currentPassage);
 	_in.fiftytwodays.MALBibleTagger.loaded();
 	_in.fiftytwodays.MALBibleTagger.isVisible = true;

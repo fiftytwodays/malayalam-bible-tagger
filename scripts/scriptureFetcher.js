@@ -24,36 +24,40 @@ loadBibleData = async function () {
 };
 
 getVerses = async function (verseReference) {
-    if (bibleData == null) {		
-        console.log("loading bible data");
-        await loadBibleData();
-        console.log("Bible data", bibleData);
-    }
+
+    try {
+        if (bibleData == null) {		
+            console.log("Loading bible data");
+            await loadBibleData();
+            console.log("Bible data loaded");
+        } 
+    } catch(err) {
+		console.error(err);
+		return `<div style="color: red; margin-bottom: 5px;">Error while loading bible data!</div>`;
+	}
 	verseReference = verseReference.trim();
-	let errorReferences = '';
-	let verseVal = '';
-	try {
-		let bibleReferences = parseBibleReference(verseReference);
-		console.log(JSON.stringify(bibleReferences, null, 2));
-        const bookObject = bibleData.Book[getNumberFromBookName(bibleReferences.book)];
+    let bibleReferences = parseBibleReference(verseReference);
+    console.log(JSON.stringify(bibleReferences, null, 2));
+
+    const bookObject = bibleData.Book[getNumberFromBookName(bibleReferences.book)];
+	let verseContent = '';
+
+    try {
         bibleReferences.chapters.forEach(chapter => {
             const chapterObj = bookObject.Chapter[chapter.chapter - 1];
             const verseSet = chapter.verses;
             verseSet.forEach(verseRange => {
                 const verses = getVerse(verseRange, chapterObj);
                 verses.forEach(verse => {
-                    verseVal += `<div><b>${chapter.chapter}:${verse.no}</b> ${verse.verse}</div>`;
+                    verseContent += `<div style="margin-bottom: 5px;"><b>${chapter.chapter}:${verse.no}</b> ${verse.verse}</div>`;
                 });
             });
         });
-	} catch(err) {
+    } catch(err) {
 		console.error(err);
-		errorReferences += ('\r\n' + verseReference);
+		verseContent += `<div style="color: red; margin-bottom: 5px;">Error while loading verse(s)!</div>`;
 	}
-	if (errorReferences != '') {
-		alert("Format of the following references (or the references) are invalid, other verses will be displayed" + errorReferences);
-	}
-	return verseVal;
+	return verseContent;
 };
 
 function getNumberFromBookName(bookName) {
