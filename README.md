@@ -6,12 +6,14 @@ This project is inspired by [NETBibleTagger](https://labs.bible.org/NETBibleTagg
 Malayalam Bible Tagger makes citing Malayalam Bible references easier than ever. Simply copy the html code below and paste it into your site's template file(s). Whether you have one web page on your site or thousands, Malayalam Bible Tagger will instantly transform all current and future links, saving you the countless hours it would take to manually tag all of your verses. Should you ever decide to remove Malayalam Bible Tagger, you only have to remove the couple of lines you copied to your template files(s). There are no residual affects left behind. This is because Malayalam Bible Tagger uses Javascript and actually inserts the links after your users have downloaded the page.
 
 ## Get the code
-NETBibleTagger can be used on most all websites or blogs. All you have to do is choose from the customizable options below and add the resulting code inside the `<head></head>` tag in you page or template file(s).
+NETBibleTagger can be used on most all websites or blogs. All you have to do is copy the below code add it inside the `<head></head>` tag in your page or template file(s).
 
 ```
 <script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
 </script>
 ```
+
+Please read the following sections to customize Malayalam Bible Tagger according to your needs.
 
 ## Options
 
@@ -81,7 +83,7 @@ The above variables need to be inserted as below
 </script>
 ```
 
-Please visit https://labs.bible.org/NETBibleTagger/configure to play around. Please note that `src` attribute and variables are differet for Malayalam Bible Tagger.
+Please visit https://labs.bible.org/NETBibleTagger/configure to play around. Please note that `src` attribute and variables are different for Malayalam Bible Tagger.
 
 ## Demo
 Please visit https://fiftytwodays.github.io/malayalam-bible-tagger/ for the demo. 
@@ -91,5 +93,5 @@ To prevent certain verses from being linked, place the text you want BibleTagger
 
 ## Credits
 [NETBibleTagger](https://labs.bible.org/NETBibleTagger/)<br/>
-[Bible database](https://github.com/godlytalias/Bible-Database)
+[Bible database](https://github.com/godlytalias/Bible-Database)<br/>
 [Obeying Church](https://obeyingchur.ch/)
