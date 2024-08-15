@@ -1,31 +1,6 @@
 if(!_in) var _in={};
 if(!_in.fiftytwodays) _in.fiftytwodays= {};
 if(!_in.fiftytwodays.MALBibleTagger) _in.fiftytwodays.MALBibleTagger={};
-		
-const malyalamBibleBooks = [
-	"ഉല്പത്തി", "പുറപ്പാട്", "ലേവ്യപുസ്തകം", "സംഖ്യാപുസ്തകം", "ആവർത്തനം", "യോശുവ", "ന്യായാധിപന്മാർ",
-	"രൂത്ത്", "1 ശമൂവേൽ", "2 ശമൂവേൽ", "1 രാജാക്കന്മാർ", "2 രാജാക്കന്മാർ", "1 ദിനവൃത്താന്തം",
-	"2 ദിനവൃത്താന്തം", "എസ്രാ", "നെഹെമ്യാവു", "എസ്ഥേർ", "ഇയ്യോബ്", "സങ്കീർത്തനങ്ങൾ",
-	"സദൃശ്യവാക്യങ്ങൾ", "സഭാപ്രസംഗി", "ഉത്തമഗീതം", "യെശയ്യാ", "യിരമ്യാവു", "വിലാപങ്ങൾ",
-	"യെഹേസ്കേൽ", "ദാനീയേൽ", "ഹോശേയ", "യോവേൽ", "ആമോസ്", "ഓബദ്യാവു", "യോനാ",
-	"മീഖാ", "നഹൂം", "ഹബക്കൂക്ക്", "സെഫന്യാവു", "ഹഗ്ഗായി", "സെഖര്യാവു", "മലാഖി", "മത്തായി",
-	"മർക്കൊസ്", "ലൂക്കോസ്", "യോഹന്നാൻ", "പ്രവൃത്തികൾ", "റോമർ", "1 കൊരിന്ത്യർ", "2 കൊരിന്ത്യർ",
-	"ഗലാത്യർ", "എഫെസ്യർ", "ഫിലിപ്പിയർ", "കൊലൊസ്സ്യർ", "1 തെസ്സലൊനീക്യർ", "2 തെസ്സലൊനീക്യർ",
-	"1 തിമൊഥെയൊസ്", "2 തിമൊഥെയൊസ്", "തീത്തൊസ്", "ഫിലേമോൻ", "എബ്രായർ", "യാക്കോബ്",
-	"1 പത്രൊസ്", "2 പത്രൊസ്", "1 യോഹന്നാൻ", "2 യോഹന്നാൻ", "3 യോഹന്നാൻ","യൂദാ", "വെളിപ്പാട്"
-];
-
-const englishBibleBooks = [
-	"Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua",
-	"Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles",
-	"2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes",
-	"Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel",
-	"Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah",
-	"Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans",
-	"1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians",
-	"1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon",
-	"Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"
-];
 
 _in.fiftytwodays.MALBibleTagger = {
 
@@ -51,8 +26,7 @@ _in.fiftytwodays.MALBibleTagger = {
     parseAnchors: false,
     fontSize: 'small',
     customCSS: false,
-    translation: 'MAL',
-	bibleData: null
+    translation: 'MAL'
 };
 
 _in.fiftytwodays.MALBibleTagger.divOnMouseOver = function(){
@@ -78,13 +52,11 @@ _in.fiftytwodays.MALBibleTagger.hideTip = function(){
 
 _in.fiftytwodays.MALBibleTagger.loaded = function() {
 
-	if ((_in.fiftytwodays.MALBibleTagger.IE) || (!_in.fiftytwodays.MALBibleTagger.IE))
-   	{
+	if ((_in.fiftytwodays.MALBibleTagger.IE) || (!_in.fiftytwodays.MALBibleTagger.IE)) {
      	document.getElementById('nbtLoading').style.display = "none";
 		document.getElementById('verseTarget').style.display = "block";
 
-		if (_in.fiftytwodays.MALBibleTagger.IE7)
-		{
+		if (_in.fiftytwodays.MALBibleTagger.IE7) {
 	   		document.getElementById('nbtCloseImage').style.position = "relative";
 	   		document.getElementById('nbtCloseImage').style.top = "-13px";
 	   		document.getElementById('nbtContent').style.width = document.getElementById('nbtDiv').offsetWidth+"px";
@@ -101,6 +73,7 @@ _in.fiftytwodays.MALBibleTagger.getScripture = async function() {
 	//e.preventDefault();
 	var tip = document.getElementById('nbtDiv');
 	var verseTarget = document.getElementById('verseTarget');
+	verseTarget.scrollTop = 0;
 	var verseTitle = document.getElementById('nbtVerseTitle');
 	var NETHeader = document.getElementById('nbtHeader');
 	// var loading = document.getElementById('nbtLoading');
@@ -114,36 +87,9 @@ _in.fiftytwodays.MALBibleTagger.getScripture = async function() {
 	tip.style.position="absolute";
 	tip.style.padding = "0";
 
-	verseTarget.innerHTML = '';
-
-	if (_in.fiftytwodays.MALBibleTagger.bibleData == null) {		
-		console.log("loading bible data");
-		await _in.fiftytwodays.MALBibleTagger.loadBibleData();
-		console.log("Bible data", _in.fiftytwodays.MALBibleTagger.bibleData);
-	}
-	verseTarget.innerHTML = '<div style = "--font-mono:Menlo,Courier,monospace">' + getVerse(_in.fiftytwodays.MALBibleTagger.currentPassage) + '</div>';
+	verseTarget.innerHTML = await getVerses(_in.fiftytwodays.MALBibleTagger.currentPassage);
 	_in.fiftytwodays.MALBibleTagger.loaded();
-	
 	_in.fiftytwodays.MALBibleTagger.isVisible = true;
-};
-
-_in.fiftytwodays.MALBibleTagger.showScripture = function() {
-}
-
-
-_in.fiftytwodays.MALBibleTagger.loadBibleData = async function () {
-	// Data Source: https://github.com/godlytalias/Bible-Database/tree/master/Malayalam
-	try {
-		const response = await fetch('https://raw.githubusercontent.com/godlytalias/Bible-Database/master/Malayalam/bible.json')
-		_in.fiftytwodays.MALBibleTagger.bibleData = await response.json();
-	} catch (error) {
-		console.error('Error fetching JSON:', error);
-	}
-};
-
-_in.fiftytwodays.MALBibleTagger.jsonCallback = function(json) {
-	_in.fiftytwodays.MALBibleTagger.loaded();
-	document.getElementById('verseTarget').innerHTML = '<div>'+json.content+'</div>';
 };
 
 _in.fiftytwodays.MALBibleTagger.getBooksRegex = function(boundaryChar) {
@@ -294,111 +240,6 @@ _in.fiftytwodays.MALBibleTagger.doElement = function(elm) {
     __traverseDOM(elm.childNodes[0], 1, textproc);
 };
 
-function getVerse(verseReference) {
-	verseReference = verseReference.trim();
-	let errorReferences = '';
-	let verseVal = '';
-	try {
-		let searchVerseObject = parseReference(verseReference);
-		console.log(JSON.stringify(searchVerseObject, null, 2));
-		const chapterObj = _in.fiftytwodays.MALBibleTagger.bibleData.Book[searchVerseObject.bookIndex].Chapter[searchVerseObject.chapterIndex];
-		if (searchVerseObject.verses.length > 0) {
-			searchVerseObject.verses.forEach(verse => {
-				let verseObj = chapterObj.Verse[verse.verseIndex];
-				verseVal += `<div><b>${searchVerseObject.chapter}:${verse.verseNo}</b> ${verseObj.Verse}</div>`;
-			});
-		} else {
-			chapterObj.Verse.forEach((verseObj, index) => {
-				const verseNo = index + 1;
-				verseVal += `<div><b>${searchVerseObject.chapter}:${verseNo}</b> ${verseObj.Verse}</div>`;
-			});
-		}
-	} catch(err) {
-		console.error(err);
-		errorReferences += ('\r\n' + verseReference);
-	}
-	if (errorReferences != '') {
-		alert("Format of the following references (or the references) are invalid, other verses will be displayed" + errorReferences);
-	}
-	console.log("verse: " + verseVal);
-	return verseVal;
-}
-
-function parseReference(reference) {
-	const [bookName, rest] = splitBookNameAndRest(reference);
-	const [chapter, versesRange] = rest.split(':');
-
-	let verses = [];
-
-	if (versesRange) {
-		if (versesRange.includes('-')) {
-			const [start, end] = versesRange.split('-');
-			const startVerse = parseInt(start, 10);
-			const endVerse = parseInt(end, 10);
-
-			for (let i = startVerse; i <= endVerse; i++) {
-				verses.push({verseNo: i, verseIndex: i-1});
-			}
-		} else {
-			verseNo = parseInt(versesRange, 10);
-			verses.push({verseNo: verseNo, verseIndex: verseNo-1});
-		}
-	}
-	const [formattedBookName, bookIndex] = getNumberFromBookName(bookName);
-	const result = {
-		bookName: formattedBookName,
-		bookIndex: bookIndex,
-		chapter: parseInt(chapter, 10),
-		chapterIndex: parseInt(chapter, 10)-1 ,
-		verses: verses
-	};
-	return result;
-}
-
-function splitBookNameAndRest(reference) {
-	reference = combineSpaces(reference);
-	// For reference with spaces in book name, example: 1 John, 2 John etc.
-	if (startsWithDigit(reference)) {
-		return splitFromSecondSpace(reference);
-	} else {				
-		return reference.split(' ');
-	} 
-}
-
-function splitFromSecondSpace(inputString) {
-	const firstSpaceIndex = inputString.indexOf(' ');
-	const secondSpaceIndex = inputString.indexOf(' ', firstSpaceIndex + 1);
-
-	if (secondSpaceIndex !== -1) {
-		const firstPart = inputString.slice(0, secondSpaceIndex);
-		const secondPart = inputString.slice(secondSpaceIndex + 1);
-
-		return [firstPart, secondPart];
-	}
-
-	// Return the original string if there are not enough spaces
-	return [inputString];
-}
-
-function startsWithDigit(inputString) {
-	return /^\d/.test(inputString);
-}
-
-function combineSpaces(inputString) {
-	// Use a regular expression to replace multiple spaces with a single space
-	return inputString.replace(/\s+/g, ' ');
-}
-
-function getNumberFromBookName(bookName) {
-	let formattedBookName = bookName;
-	let bookIndex = malyalamBibleBooks.indexOf(bookName);
-	if (bookIndex == -1) {
-		bookIndex = englishBibleBooks.findIndex(book => book.toLowerCase().startsWith(bookName.toLowerCase()));
-		formattedBookName = malyalamBibleBooks[bookIndex];
-	}
-	return [formattedBookName, bookIndex];
-}
-
 function dataproc(node) {
     var regex = new RegExp("Bible:(.*)", "m");
 
@@ -442,8 +283,9 @@ function spanproc(node) {
 }
 
 _in.fiftytwodays.MALBibleTagger.doDocument = function() {
-    if ((_in.fiftytwodays.MALBibleTagger.element && (e = document.getElementById(_in.fiftytwodays.MALBibleTagger.element))) || (e = document.body))
-    {
+    if ((_in.fiftytwodays.MALBibleTagger.element
+		&& (e = document.getElementById(_in.fiftytwodays.MALBibleTagger.element)))
+		|| (e = document.body)) {
 		_in.fiftytwodays.MALBibleTagger.doElement(e);
     }
 };
@@ -465,8 +307,7 @@ _in.fiftytwodays.MALBibleTagger.linkOnMouseOver = function(ev) {
 
 	var tip = document.getElementById('nbtDiv');
 
-	if (_in.fiftytwodays.MALBibleTagger.IE)
-	{
+	if (_in.fiftytwodays.MALBibleTagger.IE) {
 		_in.fiftytwodays.MALBibleTagger.xPos = ev.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
 		_in.fiftytwodays.MALBibleTagger.yPos = ev.clientY + document.body.scrollTop + document.documentElement.scrollTop;
 
@@ -476,43 +317,36 @@ _in.fiftytwodays.MALBibleTagger.linkOnMouseOver = function(ev) {
 		_in.fiftytwodays.MALBibleTagger.xScreen = document.documentElement.clientWidth + document.documentElement.scrollLeft;
 		_in.fiftytwodays.MALBibleTagger.yScreen = document.documentElement.clientHeight + document.documentElement.scrollTop;
 	}
-	else
-	{
+	else {
 		_in.fiftytwodays.MALBibleTagger.xPos = ev.pageX;
 		_in.fiftytwodays.MALBibleTagger.yPos = ev.pageY;
 		_in.fiftytwodays.MALBibleTagger.xScreen = window.innerWidth-16;
 		_in.fiftytwodays.MALBibleTagger.yScreen = window.innerHeight-16+window.pageYOffset;
 	}
 
- 	if (tip.offsetWidth != 0 && ((_in.fiftytwodays.MALBibleTagger.xPos+tip.offsetWidth) > _in.fiftytwodays.MALBibleTagger.xScreen))
-	{
+ 	if (tip.offsetWidth != 0 && ((_in.fiftytwodays.MALBibleTagger.xPos+tip.offsetWidth) > _in.fiftytwodays.MALBibleTagger.xScreen)) {
 		_in.fiftytwodays.MALBibleTagger.xPos = _in.fiftytwodays.MALBibleTagger.xPos - ((_in.fiftytwodays.MALBibleTagger.xPos + tip.offsetWidth)-_in.fiftytwodays.MALBibleTagger.xScreen);
 	}
-	if (tip.offsetHeight != 0 && ((_in.fiftytwodays.MALBibleTagger.yPos+tip.offsetHeight) > _in.fiftytwodays.MALBibleTagger.yScreen))
-	{
+	if (tip.offsetHeight != 0
+		&& ((_in.fiftytwodays.MALBibleTagger.yPos+tip.offsetHeight) > _in.fiftytwodays.MALBibleTagger.yScreen)) {
 		_in.fiftytwodays.MALBibleTagger.yPos = _in.fiftytwodays.MALBibleTagger.yPos - ((_in.fiftytwodays.MALBibleTagger.yPos + tip.offsetHeight)-_in.fiftytwodays.MALBibleTagger.yScreen);
 	}
 
-	if (_in.fiftytwodays.MALBibleTagger.currentPassage != verse)
-	{
+	if (_in.fiftytwodays.MALBibleTagger.currentPassage != verse) {
 		_in.fiftytwodays.MALBibleTagger.currentPassage = verse;
-
 		_in.fiftytwodays.MALBibleTagger.delayTimer = setTimeout('_in.fiftytwodays.MALBibleTagger.getScripture()', 500);
 	}
-	else if(_in.fiftytwodays.MALBibleTagger.isVisible && (_in.fiftytwodays.MALBibleTagger.currentPassage == verse))
-   	{}
-   	else
-   	{
+	else if(_in.fiftytwodays.MALBibleTagger.isVisible
+		&& (_in.fiftytwodays.MALBibleTagger.currentPassage == verse)) {
+	}
+   	else {
 		_in.fiftytwodays.MALBibleTagger.currentPassage = verse;
-
 		_in.fiftytwodays.MALBibleTagger.delayTimer = setTimeout('_in.fiftytwodays.MALBibleTagger.getScripture()', 500);
     }
-
     return false;
 };
 
 _in.fiftytwodays.MALBibleTagger.linkOnMouseOut = function(ev) {
-
 	if (!_in.fiftytwodays.MALBibleTagger.isVisible)	{
 		clearTimeout(_in.fiftytwodays.MALBibleTagger.delayTimer);
 	}
@@ -521,14 +355,11 @@ _in.fiftytwodays.MALBibleTagger.linkOnMouseOut = function(ev) {
 		_in.fiftytwodays.MALBibleTagger.hideTimer = setTimeout('_in.fiftytwodays.MALBibleTagger.handleMouseOutDelay()', 100);
 	}
    	else {
-
    	}
-
     return false;
 };
 
 _in.fiftytwodays.MALBibleTagger.handleMouseOutDelay = function() {
-
 	if (_in.fiftytwodays.MALBibleTagger.mouseOnDiv == false
 		&& _in.fiftytwodays.MALBibleTagger.voidOnMouseOut == true) {
 		_in.fiftytwodays.MALBibleTagger.hideTip();
@@ -543,23 +374,17 @@ _in.fiftytwodays.MALBibleTagger.applyCSS = function() {
 		{
 			return true;
 		}
-
 		return false;
 	};
 
 	var scripts = document.getElementsByTagName("script");
 	var cntr = scripts.length;
-
 	while (cntr) {
 		var curScript = scripts[cntr-1];
-
-		if (curScript.src.indexOf("tagger") != -1) {
-			console.log(curScript.innerHTML)
+		if (curScript.src.indexOf("tagger.js") != -1) {
 			eval(curScript.innerHTML);
-
 			break;
 		}
-
 		cntr--;
 	}
 
@@ -590,13 +415,11 @@ _in.fiftytwodays.MALBibleTagger.applyCSS = function() {
 
 	css += '#nbtHeader {';
 
-	if (isSet(headerColor))
-	{
+	if (isSet(headerColor)) {
 		css += 'background-color: #'+headerColor+';';
 		css += 'background-image: none;';
 	}
-	else if (isSet(topColor) && isSet(bottomColor))
-	{
+	else if (isSet(topColor) && isSet(bottomColor)) {
 		css += 'background-image: -ms-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
 		css += 'background-image: -moz-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
 		css += 'background-image: -o-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
@@ -639,11 +462,9 @@ function __decodeQS(qs) {
 }
 
 function __traverseDOM(node, depth, textproc) {
-   // var skipre = /^(script|style|textarea|h1|h2|cite)/i;
     if (_in.fiftytwodays.MALBibleTagger.parseAnchors) {
    		_in.fiftytwodays.MALBibleTagger.skipRe = _in.fiftytwodays.MALBibleTagger.skipRe.replace("|a", '');
     }
-
     var skipre = new RegExp(_in.fiftytwodays.MALBibleTagger.skipRe, "i");
     var count = 0;
     while (node && depth > 0) {
@@ -692,16 +513,12 @@ function __traverseDOM(node, depth, textproc) {
                 break;
         }
 
-	    if (node.nextSibling)
-	    {
+	    if (node.nextSibling) {
 	        node = node.nextSibling;
 	    }
-	    else
-	    {
-	        while (depth > 0)
-	        {
-	        	try
-	        	{
+	    else {
+	        while (depth > 0) {
+	        	try {
 	            	node = node.parentNode;
 	            	depth --;
 
@@ -711,8 +528,7 @@ function __traverseDOM(node, depth, textproc) {
 		                break;
 		            }
 	            }
-	            catch(err)
-  				{
+	            catch(err) {
   					break;
   				}
 	        }
@@ -725,11 +541,8 @@ var cntr = scripts.length;
 
 while (cntr) {
 	var curScript = scripts[cntr-1];
-	if (curScript.src.indexOf("netbibletagger") != -1) {
+	if (curScript.src.indexOf("tagger.js") != -1) {
 		eval(curScript.innerHTML);
-		if (curScript.src.indexOf("v2") == -1) {
-			_in.fiftytwodays.MALBibleTagger.customCSS = false;
-		}
 		break;
 	}
 	cntr--;
@@ -746,10 +559,20 @@ if (_in.fiftytwodays.MALBibleTagger.customCSS == false) {
 	headID.appendChild(cssNode);
 }
 
+var scriptNode = document.createElement('script');
+scriptNode.type = 'text/javascript';
+scriptNode.src = 'scripts/referenceParser.js';
+headID.appendChild(scriptNode);
+
+scriptNode = document.createElement('script');
+scriptNode.type = 'text/javascript';
+scriptNode.src = 'scripts/scriptureFetcher.js';
+headID.appendChild(scriptNode);
+
 var cssNode = document.createElement('style');
-	cssNode.type = 'text/css';
-	cssNode.id = 'netbible-netbibletagger-dynamic-style';
-	headID.appendChild(cssNode);
+cssNode.type = 'text/css';
+cssNode.id = 'netbible-netbibletagger-dynamic-style';
+headID.appendChild(cssNode);
 
 var NETDiv = document.createElement('div');
 NETDiv.id = "nbtDiv";
@@ -778,7 +601,6 @@ NETDiv.onmouseout = _in.fiftytwodays.MALBibleTagger.divOnMouseOut;
 
 if (_in.fiftytwodays.MALBibleTagger.isTouch) {
 	var nbtContent = document.getElementById('verseTarget');
-
 	var height = 0;
 	var cpos = nbtContent.scrollTop;
 	nbtContent.scrollTop = 100000;
@@ -817,15 +639,15 @@ if (_in.fiftytwodays.MALBibleTagger.isTouch) {
 		};
 
 		var nbtHandleTouchEnd = function(ev) {
-			nbtContent.removeEventListener('touchmove',nbtHandleTouchMove,false);
-			nbtContent.removeEventListener('touchend',nbtHandleTouchEnd,false);
+			nbtContent.removeEventListener('touchmove', nbtHandleTouchMove,false);
+			nbtContent.removeEventListener('touchend', nbtHandleTouchEnd,false);
 		};
 
-		nbtContent.addEventListener('touchmove',nbtHandleTouchMove,false);
-		nbtContent.addEventListener('touchend',nbtHandleTouchEnd,false);
+		nbtContent.addEventListener('touchmove', nbtHandleTouchMove,false);
+		nbtContent.addEventListener('touchend', nbtHandleTouchEnd,false);
 	};
 
-	nbtContent.addEventListener('touchstart',nbtHandleTouch,false);
+	nbtContent.addEventListener('touchstart', nbtHandleTouch,false);
 }
 
 _in.fiftytwodays.MALBibleTagger.applyCSS();

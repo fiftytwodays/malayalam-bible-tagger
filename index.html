@@ -1,78 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 
-    <title>Malayalam bible tagger test page</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Malayalam bible tagger test page</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Go Here: http://labs.bible.org/NETBibleTagger to add this to your site. -->
-    <!-- <script type="text/javascript" defer="defer" src="https://labs.bible.org/api/NETBibleTagger/v2/netbibletagger.js">
-        org.bible.NETBibleTagger.voidOnMouseOut = true;
-        org.bible.NETBibleTagger.parseAnchors = true;
-    </script>-->
-    <script type="text/javascript" defer="defer" src="api/tagger.js">
-        _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
-        _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
-        var fontFace = 'Verdana';
-        var fontSize = 13;
-        var headerFontColor = '444444';
-        var contentFontColor = '000000';
-        var topColor = 'FFFFFF';
-        var bottomColor = 'D6D6D5';
-        var headerColor = '';
-        var backgroundColor = 'FFFFFF';
+        <!-- Go Here: http://labs.bible.org/NETBibleTagger to add this to your site. -->
+        <!-- <script type="text/javascript" defer="defer" src="https://labs.bible.org/api/NETBibleTagger/v2/netbibletagger.js">
+            org.bible.NETBibleTagger.voidOnMouseOut = true;
+            org.bible.NETBibleTagger.parseAnchors = true;
+        </script>-->
+        <script type="text/javascript" defer="defer" src="api/tagger.js">
+            _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
+            _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
+            // _in.fiftytwodays.MALBibleTagger.customCSS = true;
+            var fontFace = 'Verdana';
+            var fontSize = 13;
+            var headerFontColor = '444444';
+            var contentFontColor = '000000';
+            var topColor = 'FFFFFF';
+            var bottomColor = 'D6D6D5';
+            var headerColor = '';
+            var backgroundColor = 'FFFFFF';
+        </script>
+        <!-- <script type="text/javascript" src="scripts/referenceParser.js"></script>
+        <script type="text/javascript" src="scripts/scriptureFetcher.js"></script>-->
+
+    </head>
+    <body>
+        <p>പ്രവൃത്തികൾ 11:19-26</p>
+        <p>1 ശമൂവേൽ 1</p>
+        <!-- To prevent certain verses from being linked, place the text you want NETBibleTagger to ignore inside of <cite></cite> tags. -->
+        <cite><p>1 ശമൂവേൽ 1</p></cite>
+        <p>പ്രവൃത്തികൾ 9<div>പ്രവൃത്തികൾ 10</div></p>
+        <a>യോഹന്നാൻ 3:16</a>
+        <p>സങ്കീർത്തനങ്ങൾ 1:1-3</p>
+        <p>1 കൊരിന്ത്യർ 5:1,4,5</p>
+        <p>ഉല്പത്തി 1:1-2; 2:3,4</p>
+        <span>മത്തായി 2:1-2; 3:3-5:8; 4:5,9</span><br/>
+        <span>യോഹന്നാൻ 2:1-2; 3:3-5:8; 4:5,9; 8;</span>
+    </body>
+    <script>
+        // const reference = "John 2:1-2; 3:3-5:8; 4:5,9; 8; 10:1; 15:1,3,5,7-14, 16, 18; 20:1,9-12; 21:6-21:10,12; 23:5-24:9,13";
+        // const parsedReference = parseBibleReference(reference);
+        // console.log(parsedReference);
     </script>
-
-</head>
-<body>
-    <p>പ്രവൃത്തികൾ 11:19-26</p>
-    <p>1 ശമൂവേൽ 1</p>
-    <!-- To prevent certain verses from being linked, place the text you want NETBibleTagger to ignore inside of <cite></cite> tags. -->
-    <cite><p>1 ശമൂവേൽ 1</p></cite>
-</body>
-<script type="text/javascript">
-
-    var malBooks = "Yaa\u{D2A}\u{D4D}\u{D30}\u{D35}\u{D43}\u{D24}\u{D4D}\u{D24}\u{D3F}\u{D15}\u{D7E}|Yaa\u{D0E}\u{D2B}\u{D46}\u{D38}\u{D4D}\u{D2F}\u{D7C}";
-    var vols = "I+|1st|2nd|3rd|First|Second|Third|1|2|3";
-    var books = malBooks;
-
-	var verse = "\\d+(:\\d+)?(?:\\s?[-â€“â€“&,]\\s?\\d+)*";
-
-    var numberlist = "(\\d+(,\\s?\\d+)*)";
-    var passage = "((\\d+(\\.|:)\\d+[-â€“â€“]\\d+(\\.|:)\\d+)|(\\d+(\\.|:)\\d+[-â€“â€“]\\d+)|(\\d+[-â€“â€“]\\d+)|(\\d+(\\.|:)"+numberlist+")|(\\d+))";
-    var book = "((?:("+vols+")\\s?)?("+books+")\\.?\\s?)";
-    var passagelist = "("+passage + "(;\\s?(?!"+book+")"+passage+")*)";
-
-    var wordBoundary = "\\b";
-
-	var regex = wordBoundary+book+passagelist;
-
-    regex = new RegExp(regex, "um");
-
-    let str1 = "ക 1:8";
-    let str2 = "ad Luke 1:8";
-    let str3 = "ff e Yaaഎഫെസ്യർ 1:8";
-    let str4 = "d Yaaപ്രവൃത്തികൾ 1:8";
-
-    // var match = regex.exec(str1);
-    // if(match != null) {
-    //     alert("Matches str1: " + match);
-    // }
-    // match = regex.exec(str2);
-    // if(match != null) {
-    //     alert("Matches str2: " + match);
-    // }
-    // match = regex.exec(str3);
-    // if(match != null) {
-    //     alert("Matches str3: " + match);
-    // }
-    // match = regex.exec(str4);
-    // if(match != null) {
-    //     alert("Matches str4: " + match);
-    // }
-</script>
 </html>
