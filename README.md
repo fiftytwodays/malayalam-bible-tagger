@@ -6,7 +6,7 @@ This project is inspired by [NETBibleTagger](https://labs.bible.org/NETBibleTagg
 Malayalam Bible Tagger makes citing Malayalam Bible references easier than ever. Simply copy the html code below and paste it into your site's template file(s). Whether you have one web page on your site or thousands, Malayalam Bible Tagger will instantly transform all current and future links, saving you the countless hours it would take to manually tag all of your verses. Should you ever decide to remove Malayalam Bible Tagger, you only have to remove the couple of lines you copied to your template files(s). There are no residual affects left behind. This is because Malayalam Bible Tagger uses Javascript and actually inserts the links after your users have downloaded the page.
 
 ## Get the code
-NETBibleTagger can be used on most all websites or blogs. All you have to do is copy the below code add it inside the `<head></head>` tag in your page or template file(s).
+NETBibleTagger can be used on most all websites or blogs. All you have to do is copy the below code and add it inside the `<head></head>` tag in your page or template file(s).
 
 ```
 <script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
@@ -16,6 +16,8 @@ NETBibleTagger can be used on most all websites or blogs. All you have to do is 
 Please read the following sections to customize Malayalam Bible Tagger according to your needs.
 
 ## Options
+
+Following configuration options are available to customize Malayalam Bible Tagger behaviour.
 
 ### Remove the popup when the mouse leaves a link/popup
 The default behavior for the popup is to stay visible on the screen until the user clicks the little 'x' in the top right corner of the popup. It doesn't care where the mouse moves to. However, if you wish for the popup to disappear whenever the mouse leaves, either the link (that was moused over) or the popup, check the box next to this option.
