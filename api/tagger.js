@@ -192,7 +192,7 @@ _in.fiftytwodays.MALBibleTagger.doElement = function(elm) {
 
 	var vols = "I+|1st|2nd|3rd|First|Second|Third|1|2|3";
 	// Since \\b is used in the regex, it will not match latin characters
-	var boundaryChar = "Y";
+	var boundaryChar = "";
     var books = _in.fiftytwodays.MALBibleTagger.getBooks(_in.fiftytwodays.MALBibleTagger.translation, boundaryChar);
 
 	var verse = "\\d+(:\\d+)?(?:\\s?[-â€“â€“&,]\\s?\\d+)*";
@@ -202,7 +202,7 @@ _in.fiftytwodays.MALBibleTagger.doElement = function(elm) {
     var book = "((?:("+vols+")\\s?)?("+books+")\\.?\\s?)";
     var passagelist = "("+passage + "(;\\s?(?!"+book+")"+passage+")*)";
 
-	var regex = "\\b"+book+passagelist;
+	var regex = book+passagelist;
 
     regex = new RegExp(regex, "um");
 
@@ -215,7 +215,7 @@ _in.fiftytwodays.MALBibleTagger.doElement = function(elm) {
  			}
  			else {	
 	            var node2 = node.splitText(match.index);
-	            var node3 = node2.splitText(val.length - 1);
+	            var node3 = node2.splitText(val.length);
 	            var anchor = node.ownerDocument.createElement('A');
 
 	            if (node.parentNode.tagName != 'A') {
