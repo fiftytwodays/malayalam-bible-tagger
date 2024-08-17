@@ -12,22 +12,25 @@
         <!-- <script type="text/javascript" defer="defer" src="https://labs.bible.org/api/NETBibleTagger/v2/netbibletagger.js">
             org.bible.NETBibleTagger.voidOnMouseOut = true;
             org.bible.NETBibleTagger.parseAnchors = true;
-        </script>-->
-        <script type="text/javascript" defer="defer" src="api/tagger.js">
+            var fontSize = 30;
+            var backgroundColor = 'FFFFFF';
+        </script> -->
+        <script type="text/javascript" defer="defer" src="api/malreftagger.js">
             _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
             _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
             // _in.fiftytwodays.MALBibleTagger.customCSS = true;
-            var fontFace = 'Verdana';
-            var fontSize = 13;
-            var headerFontColor = '444444';
-            var contentFontColor = '000000';
-            var topColor = 'FFFFFF';
-            var bottomColor = 'D6D6D5';
-            var headerColor = '';
-            var backgroundColor = 'FFFFFF';
+            var malbtFontFace = 'Verdana';
+            var malbtFontSize = 13;
+            var malbtHeaderFontColor = '444444';
+            var malbtContentFontColor = '000000';
+            var malbtTopColor = 'FFFFFF';
+            var malbtBottomColor = 'D6D6D5';
+            var malbtHeaderColor = '';
+            var malbtBackgroundColor = 'FFFFFF';
         </script>
+        <!-- <link rel="stylesheet" href="api/malreftagger.css"> -->
         <!-- <script type="text/javascript" src="scripts/referenceParser.js"></script>
-        <script type="text/javascript" src="scripts/scriptureFetcher.js"></script>-->
+        <script type="text/javascript" src="scripts/scriptureFetcher.js"></script> -->
 
     </head>
     <body>
@@ -41,6 +44,8 @@
             <li style="margin-bottom: 5px;">മത്തായി 2:1-2; 3:3-5:8; 4:5,9 - Ranges and csv lists in multiple chapters</li>
             <li style="margin-bottom: 5px;"><cite>ഉല്പത്തി 1:1</cite> - Inside cite tag</li>
         </ul>
+        Luke 1:1
+        ഉല്പത്തി 1:1
     </body>
     <script>
         // const reference = "John 2:1-2; 3:3-5:8; 4:5,9; 8; 10:1; 15:1,3,5,7-14, 16, 18; 20:1,9-12; 21:6-21:10,12; 23:5-24:9,13";
