@@ -41,7 +41,6 @@ function parseBibleReference(reference) {
     console.log("Reference: ", reference);
     const [bookName, verseSegmentsStr] = splitBookNameAndRest(reference);
     console.log("Book name: ", bookName);
-    console.log("verse segments str: ", verseSegmentsStr);
     const result = {
         book: bookName,
         chapters: []
@@ -49,15 +48,10 @@ function parseBibleReference(reference) {
 
     // Split the reference by semicolon to handle different chapter and verse segments
     const verseSegments = verseSegmentsStr.split(';').map(verseSegment => verseSegment.trim());
-    console.log("Chapter and verse segments: ", verseSegments);
-    console.log("Looping verse segements\n---------------------------");
     verseSegments.forEach(verseSegment => {
-        console.log("Verse segment: ", verseSegment);
         const chapterVerseRanges = getChapterVerseRanges(verseSegment);
-        console.log("Chapter and verse ranges: ", chapterVerseRanges);
 
         let chapterStart = parseInt(chapterVerseRanges[0].trim(), 10);
-        console.log("Start chapter: ", chapterStart);
 
         let verseStart = 0;
         let chapterEnd = 0;
@@ -72,7 +66,6 @@ function parseBibleReference(reference) {
         } else if (chapterVerseRanges.length === 2) { // Verse range present, ex: John 3:16
             
             const verseRange = chapterVerseRanges[1].split('-');
-            console.log("Verse range: ", verseRange);
             let leftPart = verseRange[0].trim();
             // John 1:2,3,5-7
             if (leftPart.includes(',')) {
@@ -117,10 +110,6 @@ function parseBibleReference(reference) {
                 verseEnd = verseStart;
             }
         }
-        console.log("End chapter: ", chapterEnd);
-        console.log("Start verse: ", verseStart);
-        console.log("End verse: ", verseEnd);
-        console.log("Verses: ", verses);
 
         if (chapterStart === chapterEnd) {
             result.chapters.push({
@@ -130,7 +119,6 @@ function parseBibleReference(reference) {
         } else {
             setMultipleChapterVerseRange(result, chapterStart, chapterEnd, verseStart, verseEnd, verses);
         }
-        console.log("---------------------------");
     });
 
     return result;

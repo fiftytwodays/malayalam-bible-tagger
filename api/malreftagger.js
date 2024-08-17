@@ -30,7 +30,6 @@ _in.fiftytwodays.MALBibleTagger = {
 };
 
 _in.fiftytwodays.MALBibleTagger.divOnMouseOver = function(){
-
 	_in.fiftytwodays.MALBibleTagger.mouseOnDiv = true;
 };
 
@@ -40,8 +39,7 @@ _in.fiftytwodays.MALBibleTagger.divOnMouseOut = function(){
 };
 
 _in.fiftytwodays.MALBibleTagger.hideTip = function(){
-
-	var tip = document.getElementById('nbtDiv');
+	var tip = document.getElementById('malbtDiv');
 	tip.style.left = "-1000px";
 	tip.style.top = "-1000px";
 
@@ -53,17 +51,16 @@ _in.fiftytwodays.MALBibleTagger.hideTip = function(){
 _in.fiftytwodays.MALBibleTagger.loaded = function() {
 
 	if ((_in.fiftytwodays.MALBibleTagger.IE) || (!_in.fiftytwodays.MALBibleTagger.IE)) {
-     	document.getElementById('nbtLoading').style.display = "none";
-		document.getElementById('verseTarget').style.display = "block";
+     	document.getElementById('malbtLoading').style.display = "none";
+		document.getElementById('malVerseTarget').style.display = "block";
 
 		if (_in.fiftytwodays.MALBibleTagger.IE7) {
-	   		document.getElementById('nbtCloseImage').style.position = "relative";
-	   		document.getElementById('nbtCloseImage').style.top = "-13px";
-	   		document.getElementById('nbtContent').style.width = document.getElementById('nbtDiv').offsetWidth+"px";
-	   		document.getElementById('nbtHeader').style.width = (parseInt(document.getElementById('nbtDiv').offsetWidth)+4)+"px";
+	   		document.getElementById('malbtCloseImage').style.position = "relative";
+	   		document.getElementById('malbtCloseImage').style.top = "-13px";
+	   		document.getElementById('malbtContent').style.width = document.getElementById('malbtDiv').offsetWidth+"px";
+	   		document.getElementById('malbtHeader').style.width = (parseInt(document.getElementById('malbtDiv').offsetWidth)+4)+"px";
 	   	}
    	}
-
 };
 
 _in.fiftytwodays.MALBibleTagger.getScripture = async function() {
@@ -71,12 +68,12 @@ _in.fiftytwodays.MALBibleTagger.getScripture = async function() {
 	clearTimeout(_in.fiftytwodays.MALBibleTagger.hideTimer);
 	//stop the page jumping to the top
 	//e.preventDefault();
-	var tip = document.getElementById('nbtDiv');
-	var verseTarget = document.getElementById('verseTarget');
-	verseTarget.scrollTop = 0;
-	var verseTitle = document.getElementById('nbtVerseTitle');
-	var NETHeader = document.getElementById('nbtHeader');
-	// var loading = document.getElementById('nbtLoading');
+	var tip = document.getElementById('malbtDiv');
+	var malVerseTarget = document.getElementById('malVerseTarget');
+	malVerseTarget.scrollTop = 0;
+	var verseTitle = document.getElementById('malbtVerseTitle');
+	var NETHeader = document.getElementById('malbtHeader');
+	// var loading = document.getElementById('malbtLoading');
 	// loading.style.display = "block";
 
 	verseTitle.innerHTML = _in.fiftytwodays.MALBibleTagger.currentPassage+ " ("+_in.fiftytwodays.MALBibleTagger.translation.toUpperCase()+")";
@@ -87,7 +84,7 @@ _in.fiftytwodays.MALBibleTagger.getScripture = async function() {
 	tip.style.position="absolute";
 	tip.style.padding = "0";
 	
-	verseTarget.innerHTML = await getVerses(_in.fiftytwodays.MALBibleTagger.currentPassage);
+	malVerseTarget.innerHTML = await getVerses(_in.fiftytwodays.MALBibleTagger.currentPassage);
 	_in.fiftytwodays.MALBibleTagger.loaded();
 	_in.fiftytwodays.MALBibleTagger.isVisible = true;
 };
@@ -226,7 +223,7 @@ _in.fiftytwodays.MALBibleTagger.doElement = function(elm) {
 	           	anchor.onmouseout = _in.fiftytwodays.MALBibleTagger.linkOnMouseOut;
 			   	anchor.alt = node2.data;
 	            node.parentNode.replaceChild(anchor, node2);
-	            anchor.className = 'NETBibleTagged';
+	            anchor.className = 'MALBibleTagged';
 	            anchor.appendChild(node2);
 
 	            return anchor;
@@ -250,7 +247,7 @@ function dataproc(node) {
    	// anchor.onmouseover = getScripture(true);
    	anchor.onmouseover = _in.fiftytwodays.MALBibleTagger.linkOnMouseOver;
    	anchor.onmouseout = _in.fiftytwodays.MALBibleTagger.linkOnMouseOut;
-   	anchor.className = 'NETBibleTagged';
+   	anchor.className = 'MALBibleTagged';
    	anchor.appendChild(node.firstChild);
    	anchor.alt = matches[1];
    	//anchor.innerHTML = node.title;
@@ -268,7 +265,7 @@ function spanproc(node) {
 	   	// anchor.onmouseover = getScripture(true);
 	   	anchor.onmouseover = _in.fiftytwodays.MALBibleTagger.linkOnMouseOver;
 	   	anchor.onmouseout = _in.fiftytwodays.MALBibleTagger.linkOnMouseOut;
-	   	anchor.className = 'NETBibleTagged';
+	   	anchor.className = 'MALBibleTagged';
 	   	anchor.appendChild(node.firstChild);
 	   	anchor.alt = node.title;
 	   	//anchor.innerHTML = node.title;
@@ -305,7 +302,7 @@ _in.fiftytwodays.MALBibleTagger.linkOnMouseOver = function(ev) {
 	verse = verse.replace(/\x0A/g, " ");
 	verse = verse.replace(/\xA0/g, " ");
 
-	var tip = document.getElementById('nbtDiv');
+	var tip = document.getElementById('malbtDiv');
 
 	if (_in.fiftytwodays.MALBibleTagger.IE) {
 		_in.fiftytwodays.MALBibleTagger.xPos = ev.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
@@ -367,7 +364,7 @@ _in.fiftytwodays.MALBibleTagger.handleMouseOutDelay = function() {
 };
 
 _in.fiftytwodays.MALBibleTagger.applyCSS = function() {
-	var width, fontFace, fontSize, headerFontColor, contentFontColor, topColor, bottomColor, backgroundColor, headerColor;
+	var malbtWidthProp, malbtFontFace, malbtFontSize, malbtHeaderFontColor, malbtContentFontColor, malbtTopColor, malbtBottomColor, malbtBackgroundColor, malbtHeaderColor;
 
 	var isSet = function(thing)	{
 		if (typeof thing != "null" && thing)
@@ -381,64 +378,63 @@ _in.fiftytwodays.MALBibleTagger.applyCSS = function() {
 	var cntr = scripts.length;
 	while (cntr) {
 		var curScript = scripts[cntr-1];
-		if (curScript.src.indexOf("tagger.js") != -1) {
+		if (curScript.src.indexOf("malreftagger.js") != -1) {
 			eval(curScript.innerHTML);
 			break;
 		}
 		cntr--;
 	}
 
-	var css = '#nbtDiv {';
+	var css = '#malbtDiv {';
 
-	if (isSet(width)) {
-		css += 'width:'+width+'px;';
+	if (isSet(malbtWidthProp)) {
+		css += 'width:'+malbtWidthProp+'px;';
 	}
-	if (isSet(fontFace)) {
-		css += 'font-family:"'+fontFace+'";';
-	}
-
-	css += '}';
-
-	css += '#verseTarget, #nbtPoweredBy{';
-
-	if (isSet(fontSize)) {
-		css += 'font-size:'+fontSize+'px;';
-	}
-	if (isSet(backgroundColor))	{
-		css += 'background-color:#'+backgroundColor+';';
-	}
-	if (isSet(contentFontColor)) {
-		css += 'color: #'+contentFontColor+';';
+	if (isSet(malbtFontFace)) {
+		css += 'font-family:"'+malbtFontFace+'";';
 	}
 
 	css += '}';
 
-	css += '#nbtHeader {';
+	css += '#malVerseTarget, #malbtPoweredBy{';
 
-	if (isSet(headerColor)) {
-		css += 'background-color: #'+headerColor+';';
+	if (isSet(malbtFontSize)) {
+		css += 'font-size:'+malbtFontSize+'px;';
+	}
+	if (isSet(malbtBackgroundColor))	{
+		css += 'background-color:#'+malbtBackgroundColor+';';
+	}
+	if (isSet(malbtContentFontColor)) {
+		css += 'color: #'+malbtContentFontColor+';';
+	}
+
+	css += '}';
+
+	css += '#malbtHeader {';
+
+	if (isSet(malbtHeaderColor)) {
+		css += 'background-color: #'+malbtHeaderColor+';';
 		css += 'background-image: none;';
 	}
-	else if (isSet(topColor) && isSet(bottomColor)) {
-		css += 'background-image: -ms-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
-		css += 'background-image: -moz-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
-		css += 'background-image: -o-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
-		css += 'background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #'+topColor+'), color-stop(1, #'+bottomColor+'));';
-		css += 'background-image: -webkit-linear-gradient(top, #'+topColor+' 0%, #'+bottomColor+' 100%);';
-		css += 'background-image: linear-gradient(to bottom, #'+topColor+' 0%, #'+bottomColor+' 100%);';
+	else if (isSet(malbtTopColor) && isSet(malbtBottomColor)) {
+		css += 'background-image: -ms-linear-gradient(top, #'+malbtTopColor+' 0%, #'+malbtBottomColor+' 100%);';
+		css += 'background-image: -moz-linear-gradient(top, #'+malbtTopColor+' 0%, #'+malbtBottomColor+' 100%);';
+		css += 'background-image: -o-linear-gradient(top, #'+malbtTopColor+' 0%, #'+malbtBottomColor+' 100%);';
+		css += 'background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #'+malbtTopColor+'), color-stop(1, #'+malbtBottomColor+'));';
+		css += 'background-image: -webkit-linear-gradient(top, #'+malbtTopColor+' 0%, #'+malbtBottomColor+' 100%);';
+		css += 'background-image: linear-gradient(to bottom, #'+malbtTopColor+' 0%, #'+malbtBottomColor+' 100%);';
 	}
 
 	css += '}';
 
-	css += '#nbtVerseTitle {';
+	css += '#malbtVerseTitle {';
 
-	if (isSet(headerFontColor))	{
-		css += 'color: #'+headerFontColor+';';
+	if (isSet(malbtHeaderFontColor))	{
+		css += 'color: #'+malbtHeaderFontColor+';';
 	}
 
 	css += '}';
-
-	var styleElement = document.getElementById("netbible-netbibletagger-dynamic-style");
+	var styleElement = document.getElementById("malayalam-bibletagger-dynamic-style");
 
 	if (navigator.userAgent.match(/MSIE/)) {
 		styleElement.styleSheet.cssText = css;
@@ -479,7 +475,7 @@ function __traverseDOM(node, depth, textproc) {
 
         switch (node.nodeType) {
             case 1: // ELEMENT_NODE
-            	if (node.id == 'nbtDiv' || node.id == 'currentBookChapterHolder' || node.classList == 'title-desc-wrapper')
+            	if (node.id == 'malbtDiv' || node.id == 'currentBookChapterHolder' || node.classList == 'title-desc-wrapper')
                 {
 	                break;
                 }
@@ -541,7 +537,7 @@ var cntr = scripts.length;
 
 while (cntr) {
 	var curScript = scripts[cntr-1];
-	if (curScript.src.indexOf("tagger.js") != -1) {
+	if (curScript.src.indexOf("malreftagger.js") != -1) {
 		eval(curScript.innerHTML);
 		break;
 	}
@@ -554,7 +550,7 @@ if (_in.fiftytwodays.MALBibleTagger.customCSS == false) {
 	var cssNode = document.createElement('link');
 	cssNode.type = 'text/css';
 	cssNode.rel = 'stylesheet';
-	cssNode.href = 'api/tagger.css';
+	cssNode.href = 'api/malreftagger.css';
 	cssNode.media = 'screen';
 	headID.appendChild(cssNode);
 }
@@ -571,83 +567,83 @@ headID.appendChild(scriptNode);
 
 var cssNode = document.createElement('style');
 cssNode.type = 'text/css';
-cssNode.id = 'netbible-netbibletagger-dynamic-style';
+cssNode.id = 'malayalam-bibletagger-dynamic-style';
 headID.appendChild(cssNode);
 
-var NETDiv = document.createElement('div');
-NETDiv.id = "nbtDiv";
+var MALBTDiv = document.createElement('div');
+MALBTDiv.id = "malbtDiv";
 
-document.getElementsByTagName('body')[0].appendChild(NETDiv);
+document.getElementsByTagName('body')[0].appendChild(MALBTDiv);
 
-NETDiv.innerHTML = '<div id="nbtHeader" class="nbtWidth">'+
-                       '<span id="nbtVerseTitle"></span>'+
-                       '<a id="nbtClose" href="javascript:{}" onclick="_in.fiftytwodays.MALBibleTagger.hideTip();">'+
-				          '<img id="nbtCloseImage" src="https://labs.bible.org/api/NETBibleTagger/v2/images/closeBig.png" style="" title="close" />'+
+MALBTDiv.innerHTML = '<div id="malbtHeader" class="malbtWidth">'+
+                       '<span id="malbtVerseTitle"></span>'+
+                       '<a id="malbtClose" href="javascript:{}" onclick="_in.fiftytwodays.MALBibleTagger.hideTip();">'+
+				          '<img id="malbtCloseImage" src="https://labs.bible.org/api/NETBibleTagger/v2/images/closeBig.png" style="" title="close" />'+
 			           '</a>'+
 			        '</div>'+
-			        '<div id="nbtContent" class="nbtWidth">'+
-                       '<img id="nbtLoading" src="https://labs.bible.org/api/NETBibleTagger/v2/images/loading.gif" style="" />'+
-                       '<div id="verseTarget"></div>'+
-                    '</div><div id="nbtPoweredBy"><a href="https://github.com/godlytalias/Bible-Database" target="_blank">Bible database</a>, '+ 'Provided by' +' <a href="https://github.com/fiftytwodays">fiftytwodays.in</a></div>';
+			        '<div id="malbtContent" class="malbtWidth">'+
+                       '<img id="malbtLoading" src="https://labs.bible.org/api/NETBibleTagger/v2/images/loading.gif" style="" />'+
+                       '<div id="malVerseTarget"></div>'+
+                    '</div><div id="malbtPoweredBy"><a href="https://github.com/godlytalias/Bible-Database" target="_blank">Bible database</a>, '+ 'Provided by' +' <a href="https://github.com/fiftytwodays">fiftytwodays.in</a></div>';
 
-NETDiv.style.display = 'block';
-NETDiv.style.left = "-1000px";
-NETDiv.style.top = "-1000px";
-NETDiv.style.position="absolute";
+MALBTDiv.style.display = 'block';
+MALBTDiv.style.left = "-1000px";
+MALBTDiv.style.top = "-1000px";
+MALBTDiv.style.position="absolute";
 
 
-NETDiv.onmouseover = _in.fiftytwodays.MALBibleTagger.divOnMouseOver;
-NETDiv.onmouseout = _in.fiftytwodays.MALBibleTagger.divOnMouseOut;
+MALBTDiv.onmouseover = _in.fiftytwodays.MALBibleTagger.divOnMouseOver;
+MALBTDiv.onmouseout = _in.fiftytwodays.MALBibleTagger.divOnMouseOut;
 
 if (_in.fiftytwodays.MALBibleTagger.isTouch) {
-	var nbtContent = document.getElementById('verseTarget');
+	var malbtContent = document.getElementById('malVerseTarget');
 	var height = 0;
-	var cpos = nbtContent.scrollTop;
-	nbtContent.scrollTop = 100000;
-	height = nbtContent.scrollTop;
-	nbtContent.scrollTop = cpos;
-	var fullheight = height + nbtContent.outerHeight;
-	var scrollbarV_length = nbtContent.innerHeight*(nbtContent.innerHeight/fullheight)+2;
+	var cpos = malbtContent.scrollTop;
+	malbtContent.scrollTop = 100000;
+	height = malbtContent.scrollTop;
+	malbtContent.scrollTop = cpos;
+	var fullheight = height + malbtContent.outerHeight;
+	var scrollbarV_length = malbtContent.innerHeight*(malbtContent.innerHeight/fullheight)+2;
 
 	var width = 0;
-	var lpos = nbtContent.scrollLeft;
+	var lpos = malbtContent.scrollLeft;
 	//cont.scrollLeft(100000);
-	width = nbtContent.scrollLeft;
-	nbtContent.scrollLeft= lpos;
+	width = malbtContent.scrollLeft;
+	malbtContent.scrollLeft= lpos;
 
-	var nbtHandleTouch = function(e) {
-		cpos = nbtContent.scrollTop;
+	var malbtHandleTouch = function(e) {
+		cpos = malbtContent.scrollTop;
 		e = e.touches[0];
 
 		var sY = e.pageY;
 		var sX = e.pageX;
 
-		var nbtHandleTouchMove = function(ev) {
+		var malbtHandleTouchMove = function(ev) {
 			ev.preventDefault();
 			ev = ev.touches[0];
 
 			var top = cpos-(ev.pageY-sY);
 			var left =  lpos-(ev.pageX-sX);
 
-			nbtContent.scrollTop = top;
-			cpos = nbtContent.scrollTop;
+			malbtContent.scrollTop = top;
+			cpos = malbtContent.scrollTop;
 			sY = ev.pageY;
 
-			nbtContent.scrollLeft = left;
-			lpos = nbtContent.scrollLeft;
+			malbtContent.scrollLeft = left;
+			lpos = malbtContent.scrollLeft;
 			sX = ev.pageX;
 		};
 
-		var nbtHandleTouchEnd = function(ev) {
-			nbtContent.removeEventListener('touchmove', nbtHandleTouchMove,false);
-			nbtContent.removeEventListener('touchend', nbtHandleTouchEnd,false);
+		var malbtHandleTouchEnd = function(ev) {
+			malbtContent.removeEventListener('touchmove', malbtHandleTouchMove,false);
+			malbtContent.removeEventListener('touchend', malbtHandleTouchEnd,false);
 		};
 
-		nbtContent.addEventListener('touchmove', nbtHandleTouchMove,false);
-		nbtContent.addEventListener('touchend', nbtHandleTouchEnd,false);
+		malbtContent.addEventListener('touchmove', malbtHandleTouchMove,false);
+		malbtContent.addEventListener('touchend', malbtHandleTouchEnd,false);
 	};
 
-	nbtContent.addEventListener('touchstart', nbtHandleTouch,false);
+	malbtContent.addEventListener('touchstart', malbtHandleTouch,false);
 }
 
 _in.fiftytwodays.MALBibleTagger.applyCSS();

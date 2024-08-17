@@ -9,7 +9,7 @@ Malayalam Bible Tagger makes citing Malayalam Bible references easier than ever.
 NETBibleTagger can be used on most all websites or blogs. All you have to do is copy the below code and add it inside the `<head></head>` tag in your page or template file(s).
 
 ```
-<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
+<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.js">
 </script>
 ```
 
@@ -23,7 +23,7 @@ Following configuration options are available to customize Malayalam Bible Tagge
 The default behavior for the popup is to stay visible on the screen until the user clicks the little 'x' in the top right corner of the popup. It doesn't care where the mouse moves to. However, if you wish for the popup to disappear whenever the mouse leaves, either the link (that was moused over) or the popup, check the box next to this option.
 
 ```
-<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
+<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.js">
     _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
 </script>
 ```
@@ -32,16 +32,16 @@ The default behavior for the popup is to stay visible on the screen until the us
 Many sites already have inserted links to https://net.bible.org, https://biblegateway.com, or other sites for their scripture references. By default Malayalam Bible Tagger will not alter these or any other links on your site. However, if you would like to transform your existing links to have the popup shown when the user mouses over the link and have the original link you inserted still function, enable this option.
 
 ```
-<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
+<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.js">
     _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
 </script>
 ```
 
 ### Override the default CSS and provide your own
-Setting `_in.fiftytwodays.MALBibleTagger.customCSS = true;` will cause the default style-sheet to not get loaded. You will then need to copy the css from https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.css into your own style-sheet, and make whatever changes you wish.
+Setting `_in.fiftytwodays.MALBibleTagger.customCSS = true;` will cause the default style-sheet to not get loaded. You will then need to copy the css from https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.css into your own style-sheet, and make whatever changes you wish.
 
 ```
-<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
+<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.js">
     _in.fiftytwodays.MALBibleTagger.customCSS = true;
 </script>
 ```
@@ -49,7 +49,7 @@ Setting `_in.fiftytwodays.MALBibleTagger.customCSS = true;` will cause the defau
 You can add multiple options together as shown below
 
 ```
-<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
+<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.js">
     _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
     _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
 </script>
@@ -59,29 +59,29 @@ You can add multiple options together as shown below
 
 Use the below variables to match your site's theme
 ```
-var fontFace = 'Verdana';
-var fontSize = 13;
-var headerFontColor = '444444';
-var contentFontColor = '000000';
-var topColor = 'FFFFFF';
-var bottomColor = 'D6D6D5';
-var headerColor = '';
-var backgroundColor = 'FFFFFF';
+var malbtFontFace = 'Verdana';
+var malbtFontSize = 13;
+var malbtHeaderFontColor = '444444';
+var malbtContentFontColor = '000000';
+var malbtTopColor = 'FFFFFF';
+var malbtBottomColor = 'D6D6D5';
+var malbtHeaderColor = '';
+var malbtBackgroundColor = 'FFFFFF';
 ```
 
 The above variables need to be inserted as below
 ```
-<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/tagger.js">
+<script type="text/javascript" defer="defer" src="https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.js">
     _in.fiftytwodays.MALBibleTagger.voidOnMouseOut = true;
     _in.fiftytwodays.MALBibleTagger.parseAnchors = true;
-    var fontFace = 'Verdana';
-    var fontSize = 13;
-    var headerFontColor = '444444';
-    var contentFontColor = '000000';
-    var topColor = 'FFFFFF';
-    var bottomColor = 'D6D6D5';
-    var headerColor = '';
-    var backgroundColor = 'FFFFFF';
+    var malbtFontFace = 'Verdana';
+    var malbtFontSize = 13;
+    var malbtHeaderFontColor = '444444';
+    var malbtContentFontColor = '000000';
+    var malbtTopColor = 'FFFFFF';
+    var malbtBottomColor = 'D6D6D5';
+    var malbtHeaderColor = '';
+    var malbtBackgroundColor = 'FFFFFF';
 </script>
 ```
 

@@ -1,6 +1,5 @@
 /* The div that holds the entire popup */
-
-#nbtDiv {
+#malbtDiv {
 	padding: 0;
 	margin: 0;
 	display: none;
@@ -19,8 +18,7 @@
 }
 
 /* The Header that includes the Current Verse Reference and Close X */
-
-#nbtHeader {
+#malbtHeader {
     /* background: url("/api/NETBibleTagger/v2/images/headerBackground.png") repeat scroll 0 0 white; */
     /* IE10 Consumer Preview */ 
 	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D6D6D5 100%);
@@ -47,8 +45,7 @@
 }
 
 /* The span that hold the Current Verse Reference */
-
-#nbtVerseTitle {
+#malbtVerseTitle {
     color: #444444;
     display: inline;
     font-size: 16px;
@@ -61,7 +58,7 @@
 
 /* The Close link's child image */
 
-#nbtClose img {
+#malbtClose img {
     border: 0 none;
     display: block;
     float: right;
@@ -72,8 +69,7 @@
 }
 
 /* The loading Indicator image */
-
-#nbtLoading {
+#malbtLoading {
 	position:relative; 
 	border:0; 
 	margin-left:auto; 
@@ -83,8 +79,7 @@
 }
 
 /* The div containing the content */
-
-#verseTarget {
+#malVerseTarget {
 	height: 150px;
 	/*
 	border: 1px solid #DDDDDD;
@@ -97,26 +92,25 @@
     font-size: 13px;
 }
 
-#verseTarget a, #nbtPoweredBy a {
+#malVerseTarget a, #malbtPoweredBy a {
 	color: #0088CC;
 	text-decoration: none;
 	font-size: 14px;
 	background: none;
 }
 
-#verseTarget a:hover, #nbtPoweredBy a:hover {
+#malVerseTarget a:hover, #malbtPoweredBy a:hover {
 	color: #0088CC;
 	text-decoration: none;
 	font-size: 14px;
 	background: none;
 }
 
-
-.nbtWidth {
+.malbtWidth {
 	width: 450px;
 }
 
-#nbtPoweredBy {
+#malbtPoweredBy {
 	padding-left: 6px;
 	border-top: 1px solid #DDDDDD;
 	font-size: 14px;
