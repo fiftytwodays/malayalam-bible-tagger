@@ -550,19 +550,19 @@ if (_in.fiftytwodays.MALBibleTagger.customCSS == false) {
 	var cssNode = document.createElement('link');
 	cssNode.type = 'text/css';
 	cssNode.rel = 'stylesheet';
-	cssNode.href = 'api/malreftagger.css';
+	cssNode.href = 'https://fiftytwodays.github.io/malayalam-bible-tagger/api/malreftagger.css';
 	cssNode.media = 'screen';
 	headID.appendChild(cssNode);
 }
 
 var scriptNode = document.createElement('script');
 scriptNode.type = 'text/javascript';
-scriptNode.src = 'scripts/referenceParser.js';
+scriptNode.src = 'https://fiftytwodays.github.io/malayalam-bible-tagger/scripts/referenceParser.js';
 headID.appendChild(scriptNode);
 
 scriptNode = document.createElement('script');
 scriptNode.type = 'text/javascript';
-scriptNode.src = 'scripts/scriptureFetcher.js';
+scriptNode.src = 'https://fiftytwodays.github.io/malayalam-bible-tagger/scripts/scriptureFetcher.js';
 headID.appendChild(scriptNode);
 
 var cssNode = document.createElement('style');
