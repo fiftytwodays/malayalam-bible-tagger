@@ -584,7 +584,7 @@ MALBTDiv.innerHTML = '<div id="malbtHeader" class="malbtWidth">'+
 			        '<div id="malbtContent" class="malbtWidth">'+
                        '<img id="malbtLoading" src="https://labs.bible.org/api/NETBibleTagger/v2/images/loading.gif" style="" />'+
                        '<div id="malVerseTarget"></div>'+
-                    '</div><div id="malbtPoweredBy"><a href="https://github.com/godlytalias/Bible-Database" target="_blank">Bible database</a>, '+ 'Provided by' +' <a href="https://github.com/fiftytwodays">fiftytwodays.in</a></div>';
+                    '</div><div id="malbtPoweredBy"><a href="https://github.com/fiftytwodays/malayalam-bible-tagger" target="_blank">MalRefTagger</a>'+ ' Provided by ' + '<a href="https://github.com/fiftytwodays">fiftytwodays.in</a> | <a href="https://github.com/godlytalias/Bible-Database" target="_blank">Bible Database</a></div>';
 
 MALBTDiv.style.display = 'block';
 MALBTDiv.style.left = "-1000px";
