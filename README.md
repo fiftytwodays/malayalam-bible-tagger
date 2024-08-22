@@ -1,5 +1,5 @@
 # Malayalam Bible Tagger - Malayalam Bible reference tagging for your website
-Malayalam Bible Tagger is an innovative way to quote and link to the Bible from your existing scripture references. Plain references turn into hyperlinks which create a small in-line windows (tooltips), when the user mouses over them. This tooltip displays the text in the passage(s) that were referenced.
+Malayalam Bible Tagger is an innovative way to quote and link to the Bible from your existing scripture references. Plain references turn into hyperlinks which create a small in-line windows (tooltips), when the user mouses over them. This tooltip displays the text in the passage(s) that were referenced. It uses regular expressions with unicode representation to match the malayalam scripture references.
 
 This project is inspired by [NETBibleTagger](https://labs.bible.org/NETBibleTagger/).
 
